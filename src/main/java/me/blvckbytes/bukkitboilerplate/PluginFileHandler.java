@@ -29,6 +29,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PluginFileHandler implements IFileHandler {
 
@@ -81,7 +83,15 @@ public class PluginFileHandler implements IFileHandler {
     this.plugin.saveResource(path, true);
   }
 
-  @Override
+	@Override
+	public void saveResource(
+		final String path,
+		final File fileToSave
+	) {
+		this.plugin.saveResource(path, true);
+	}
+
+	@Override
   public @Nullable InputStream getResource(String path) {
     return this.plugin.getResource(path);
   }

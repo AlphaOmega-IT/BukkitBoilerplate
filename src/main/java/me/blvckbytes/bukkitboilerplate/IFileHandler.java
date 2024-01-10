@@ -27,10 +27,7 @@ package me.blvckbytes.bukkitboilerplate;
 import me.blvckbytes.utilitytypes.ETriResult;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public interface IFileHandler {
 
@@ -42,7 +39,9 @@ public interface IFileHandler {
 
   boolean doesFileExist(String path);
 
-  void saveResource(String path);
+  void saveResource(String path) throws IOException;
+
+	void saveResource(String path, File fileToSave) throws IOException;
 
   @Nullable InputStream getResource(String path);
 
